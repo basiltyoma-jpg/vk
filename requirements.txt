@@ -1,0 +1,5 @@
+flask
+vk_api
+scikit-learn
+matplotlib
+gunicorn
