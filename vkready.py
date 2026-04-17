@@ -176,7 +176,7 @@ def callback():
 
     # Подтверждение сервера
     if event['type'] == 'confirmation':
-        return Response(CONFIRMATION_TOKEN, status=200, mimetype='text/plain')
+        return CONFIRMATION_TOKEN
 
     # Обработка inline-кнопок
     if event['type'] == 'message_event':
