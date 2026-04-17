@@ -170,13 +170,15 @@ def upload_photo(file_path):
     return attachment
 
 # ================== CALLBACK API ==================
-@app.route('/', methods=['POST'])
-def callback():
-    event = request.get_json(force=True)
+    @app.route('/', methods=['POST'])
+    def callback():
+        event = request.json
+        print("EVENT:", event)
 
-    # Подтверждение сервера
-    if event['type'] == 'confirmation':
-        return CONFIRMATION_TOKEN
+        if event['type'] == 'confirmation':
+            return Response(CONFIRMATION_TOKEN, status=200, mimetype='text/plain')
+
+        return "ok"
 
     # Обработка inline-кнопок
     if event['type'] == 'message_event':
